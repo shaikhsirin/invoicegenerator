@@ -11,7 +11,7 @@ public class InvoiceGenerator {
 
     //calculating fare for a ride
     public double calculateFare(double distance, int time) {
-        double totalFare = distance * MINIMUM_COST_PER_KILOMETER + time * COST_PER_TIME;
+        double totalFare =  distance * MINIMUM_COST_PER_KILOMETER + time * COST_PER_TIME;
         return Math.max(totalFare, MINIMUM_FARE);
     }
 
@@ -23,18 +23,4 @@ public class InvoiceGenerator {
         }
         return totalFare;
     }
-
-    //calculating fare for a ride whether it s normal or Premium
-    public double calculateFare(double distance, int time, String type) {
-        if (type.equalsIgnoreCase("Normal")) {
-            double totalFare = distance * MINIMUM_COST_PER_KILOMETER_NORMAL + time * COST_PER_TIME_NORMAL;
-            return Math.max(totalFare, MINIMUM_FARE_NORMAL);
-        } else if (type.equalsIgnoreCase("Premium")) {
-            double totalFare = distance * MINIMUM_COST_PER_KILOMETER_PREMIUM + time * COST_PER_TIME_PREMIUM;
-            return Math.max(totalFare, MINIMUM_FARE_PREMIUM);
-        } else {
-            return 0;
-        }
-    }
 }
-
